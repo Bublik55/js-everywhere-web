@@ -1,5 +1,7 @@
 import React from 'react'
 import { useQuery, gql } from '@apollo/client';
+import ReactMarkdown from 'react-markdown';
+import NoteFeed from '../components/NoteFeed';
 
 const GET_NOTES = gql`
 query noteFeed($cursor: String) {
@@ -23,16 +25,12 @@ query noteFeed($cursor: String) {
 `;
 
 const Home = () => {
-	const {data, loading, error, fetchMore} = useQuery(GET_NOTES);
+	const { data, loading, error, fetchMore } = useQuery(GET_NOTES);
 
 	if (loading) return <p>LOADING...</p>;
-	if (error)	return <p>ERROR</p>;
+	if (error) return <p>ERROR</p>;
 	return (
-		<div>
-			{console.log(data)}
-			<p>Data loaded</p>
-		</div>
-	);
-};
+		<NoteFeed notes = {data.noteFeed.notes} />
+	)};
 
 export default Home;
