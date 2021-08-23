@@ -1,14 +1,36 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import Button from '../components/Button';
+import { useQuery, gql } from '@apollo/client';
 
-import Header from '../components/Header';
-import Navigation from '../components/Navigation';
+const GET_NOTES = gql`
+query noteFeed($cursor: String) {
+	noteFeed(cursor: $cursor) {
+	  cursor
+	  hasNextPage
+	  notes {
+		id
+		createdAt
+		content
+		favoriteCount
+		author {
+		  username
+		  id
+		  avatar
+		  }
+		}
+	  }
+	}
+
+`;
 
 const Home = () => {
+	const {data, loading, error, fetchMore} = useQuery(GET_NOTES);
+
+	if (loading) return <p>LOADING...</p>;
+	if (error)	return <p>ERROR</p>;
 	return (
 		<div>
-			<p>This is a home page with no Button</p>
+			{console.log(data)}
+			<p>Data loaded</p>
 		</div>
 	);
 };
