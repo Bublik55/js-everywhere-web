@@ -23,7 +23,6 @@ query noteFeed($cursor: String) {
 `;
 
 const Home = () => {
-
 	const {data, loading, error, fetchMore} = useQuery(GET_NOTES);
 
 	if (loading) return <p>LOADING...</p>;
