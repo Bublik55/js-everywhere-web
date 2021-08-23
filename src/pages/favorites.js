@@ -8,7 +8,6 @@ const Favorites = () => {
 
 	return (
 		<div>
-			<h1><Link to = "/">Notedly</Link></h1>
 			<p>These are my favorites</p>
 		</div>
 	);
