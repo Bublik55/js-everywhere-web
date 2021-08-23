@@ -5,10 +5,21 @@ import ReactDOM from 'react-dom'
 import GlobalStyle from './components/GlobalStyle';
 import Pages from './pages';
 
+import { ApolloProvider, InMemoryCache, ApolloClient } from '@apollo/client';
+
+const uri = process.env.API_URI;
+const cache = new InMemoryCache();
+
+const client = new ApolloClient({
+	uri,
+	cache,
+	connectToDevTools: true
+});
+
 const App = () => {
 	return (
 		<div>
-			<GlobalStyle/>
+			<GlobalStyle />
 			<Pages />
 		</div>
 	)
