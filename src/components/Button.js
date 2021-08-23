@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 const Button = styled.button`
 	display: block;
-	padding: 10px;
+	padding: 5% 20% 5%;
+	margin: auto;
 	border: none;
 	border-radius: 5px;
 	font-size: 10px;
@@ -18,5 +19,6 @@ const Button = styled.button`
 		background-color: #005fa3;
 	}
 `;
+
 
 export default Button;
