@@ -19,7 +19,7 @@ query noteFeed($cursor: String) {
 		}
 	  }
 	}
-}
+
 `;
 
 const Home = () => {
@@ -29,8 +29,8 @@ const Home = () => {
 	if (error)	return <p>ERROR</p>;
 	return (
 		<div>
-			{console.log(data)};
-			<p>This is a home page with no Button</p>
+			{console.log(data)}
+			<p>Data loaded</p>
 		</div>
 	);
 };
