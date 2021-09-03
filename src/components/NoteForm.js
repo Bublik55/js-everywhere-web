@@ -7,7 +7,7 @@ const Wrapper = styled.div`
 	height: 100%;
 `;
 
-const Form = styled.div`
+const Form = styled.form`
 	height: 100%;
 `;
 
