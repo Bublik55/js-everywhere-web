@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useMutation, gql } from '@apollo/client';
 
 import NoteForm from '../components/NoteForm';
-
+import { GET_NOTES } from '../gql/query';
 const NEW_NOTE = gql`
 mutation newNote($content: String!) {
 	newNote(content: $content) {
@@ -24,9 +24,10 @@ mutation newNote($content: String!) {
 
 const NewNote = props => {
 	useEffect(() => {
-		document.title = 'New Note - Notedly'
-	})
+		document.title = 'New Note — Notedly';
+	});
 	const [data, { loading, error }] = useMutation(NEW_NOTE, {
+		refetchQueries: [{ query: GET_NOTES }],
 		onCompleted: data => {
 			props.history.push(`note/${data.newNote.id}`);
 		}
@@ -38,5 +39,5 @@ const NewNote = props => {
 			<NoteForm action={data} />
 		</React.Fragment>
 	);
-};
+}
 export default NewNote;
