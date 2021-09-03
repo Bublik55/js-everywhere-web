@@ -1,4 +1,3 @@
-import { everyLimit } from 'async';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -39,6 +38,7 @@ const UserForm = props => {
 			{props.formType === 'signup' ? <h2>Sign Up</h2> : <h2>Sign In</h2>}
 			<Form
 				onSubmit={e => {
+					e.preventDefault();
 					props.action({
 						variables: {
 							...values,

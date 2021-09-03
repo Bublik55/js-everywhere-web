@@ -34,7 +34,7 @@ const UserState = styled.div`
 	margin-left: auto;
 `
 
-const Header = () => {
+const Header = props => {
 
 	const { data,client } = useQuery(IS_LOGGED_IN);
 
@@ -53,7 +53,6 @@ const Header = () => {
 						}}>
 						<p>LogOut</p>
 					</ButtonAsLink>
-
 				) : (
 					<p>
 						<Link to={`/signin`}>Sign In</Link> or {''}
