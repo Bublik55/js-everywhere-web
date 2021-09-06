@@ -1,8 +1,8 @@
+import { useQuery } from '@apollo/client';
 import React from 'react';
-import { useQuery, gql } from '@apollo/client'
-
-import Note from '../components/Note'
+import Note from '../components/Note';
 import { GET_NOTE } from '../gql/query';
+
 
 const NotePage = props => {
 	const id = props.match.params.id;

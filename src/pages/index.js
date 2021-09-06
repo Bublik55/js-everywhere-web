@@ -14,6 +14,7 @@ import Favorites from './favorites';
 import SignUp from './signup';
 import SignIn from './signin';
 import NewNote from './new';
+import EditNote from './edit';
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -50,6 +51,7 @@ const Pages = () => {
 				<Route exact path="/signup" component={SignUp} />
 				<Route exact path="/signin" component={SignIn} />
 				<PrivateRoute exact path="/new" component={NewNote} />
+				<PrivateRoute exact path="/edit/:id" component={EditNote} />
 			</Layout>
 		</Router>
 	);
